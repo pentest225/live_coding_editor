@@ -1,19 +1,26 @@
 # live_coding_editor
 créations des modèles de la plateforme de live coing 
 
-#CREATION DES MODELS 
-### *TABLE module 
+## CREATION DES MODELS 
+
+### TABLE module 
 >Qui contiendras les differante module de notre plateforme 
 >Leurs descriptions et autres 
-### *TABLE semaines
+
+### TABLE semaines
 >Qui contidras les differentes sections de notre module 
-### *TABLE test  
+
+### TABLE test  
 >Cette table contiendras nos different quiz regroupe par semaine  
-### *TABLE questions 
+
+### TABLE questions 
 >la table qui contiendras les differente questions par test . 
 
 
-##Table **Module**
+### TABLE response 
+>la table qui contiendras differente reponse de l'utilisateur  .
+
+## Table **Module**
 
 ```bash
    class Module(models.Model):
@@ -21,7 +28,7 @@ créations des modèles de la plateforme de live coing
        description = models.TextField()
 ```
 
-##Table **Semaines**
+## Table **Semaines**
 
 ```bash
    class Semaines(models.Model):
@@ -32,7 +39,7 @@ créations des modèles de la plateforme de live coing
       date_expiration=models.DateTimeField()
 ```
 
-##Tabel **Test**
+## Tabel **Test**
 ```bash
   class Test(models.Model):
       semaine_id=models.ForeignKey(Semaines,on_delete=models.CASCADE,related_name='Semaines_test')
@@ -42,7 +49,7 @@ créations des modèles de la plateforme de live coing
       date_expiration = models.DateTimeField()
 ```
 
-##Tabel **Questions**
+## Tabel **Questions**
 ```bash
   class Questions(models.Model):
     test_id= models.ForeignKey(Test,on_delete=models.CASCADE,related_name='Test_questions')
@@ -52,7 +59,7 @@ créations des modèles de la plateforme de live coing
 ```
 >ici le status de la questions serra modifier en fonctions des traiement dans la tables respons 
 
-##Tabel **Response**
+## Tabel **Response**
 ```bash
  class response(models.Models):
     user_id=models.ForeignKey(User,on_delete=models.CASCADE,related_name='User_response')
