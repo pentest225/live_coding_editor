@@ -20,6 +20,9 @@ créations des modèles de la plateforme de live coing
 ### TABLE response 
 >la table qui contiendras differente reponse de l'utilisateur  .
 
+### Table resultat 
+>cette table nous servirra au classement des different user en fonctions de leurs resultats
+
 ## Table **Module**
 
 ```bash
@@ -61,10 +64,11 @@ créations des modèles de la plateforme de live coing
 
 ## Tabel **Response**
 ```bash
- class response(models.Models):
+ class response(models.Model):
     user_id=models.ForeignKey(User,on_delete=models.CASCADE,related_name='User_response')
     id_question=models.ForeignKey(Questions,on_delete=models.CASCADE,related_name='Questions_response')
     response_text=models.TextField()
 ```
 >ici id_user serra enregistre losque l'utilisateur valide la ou les question(s) 
 >ses reponses et son id  serons donc enregistre dans la table responce . 
+
